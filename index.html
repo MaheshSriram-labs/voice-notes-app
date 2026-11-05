@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voice Notes AI v19</title>
+<meta name="theme-color" content="#2563eb">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+  <h1>🎙️ Voice Notes AI</h1>
+  <p>Speak in English. Stored only in your browser. <strong>v19</strong></p>
+  <button id="installBtn" style="display:none">📲 Install App</button>
+</header>
+<main>
+  <section class="card">
+    <div id="status">Ready. Click Start Recording.</div>
+    <div class="controls">
+      <button id="startBtn">🔴 Start Recording</button>
+      <button id="stopBtn" disabled>⏹️ Stop</button>
+      <button id="clearBtn">Clear Text</button>
+    </div>
+    <textarea id="transcript" rows="6" placeholder="Try saying: I want to buy olive oil comma cycle from Walmart"></textarea>
+    <button id="saveBtn" class="primary">💾 Save Note</button>
+    <p class="help">Tip: Say "comma" for , &nbsp; "period" for . &nbsp; They are converted automatically when you save.</p>
+    <p id="browserWarning" class="warning"></p>
+  </section>
+
+  <section class="card">
+    <h2>❓ Ask / Manage Your Notes (Offline AI)</h2>
+    <p>Answers are quoted <strong>only</strong> from <strong>all</strong> your saved notes.</p>
+    <p class="help">Voice commands: "remove all items from Target" &nbsp;|&nbsp; "delete my previous note" &nbsp;|&nbsp; "remove toothpaste" &nbsp;|&nbsp; "delete all notes"</p>
+    <div id="modelStatus">AI Model: Not loaded yet - v19</div>
+    <progress id="modelProgress" value="0" max="100" style="width:100%;display:none"></progress>
+    <textarea id="questionInput" rows="2" placeholder="Ask a question, or say: remove all items from Target"></textarea>
+    <div class="controls">
+      <button id="askBtn" class="primary" style="width:auto;margin:0">Ask / Run Command</button>
+      <button id="askVoiceBtn">🎤 Ask by Voice</button>
+      <button id="deleteVoiceBtn" class="danger">🗑️ Voice Delete</button>
+      <select id="answerMode">
+        <option value="list" selected>Format: List</option>
+        <option value="auto">Format: Auto</option>
+        <option value="text">Format: Text</option>
+      </select>
+      <label><input type="checkbox" id="speakAnswer" checked> Speak Answer</label>
+    </div>
+    <div id="answerBox" class="answer-box">Your answer will appear here...</div>
+  </section>
+
+  <section class="card">
+    <h2>Saved Notes</h2>
+    <div class="controls">
+      <input type="text" id="search" placeholder="Search notes...">
+      <button id="exportBtn">Export .md</button>
+      <button id="clearAllBtn">Delete All</button>
+    </div>
+    <div id="notesList"></div>
+  </section>
+</main>
+<footer><p>Open Source - MIT - No data leaves your browser - v19</p></footer>
+<script type="module" src="js/app.js?v=19"></script>
+</body>
+</html>
